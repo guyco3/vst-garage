@@ -28,7 +28,19 @@ function PrismArt({ flip }: { flip?: boolean }) {
         <polygon points="5,90 45,20 78,78" className="fill-white/35" />
         <polygon points="30,88 66,30 95,95" className="fill-white/25" />
         <polygon points="0,100 28,56 47,100" className="fill-white/40" />
+        <polygon points="12,16 34,6 42,24" className="fill-sky-200/35" />
+        <polygon points="58,8 82,18 66,34" className="fill-fuchsia-200/30" />
+        <polyline points="10,74 40,44 70,66 94,48" className="stroke-white/40" fill="none" strokeWidth="1.2" />
       </svg>
+
+      <div
+        className="absolute left-6 top-5 h-20 w-16 rotate-12 border border-white/35 bg-white/10"
+        style={{ clipPath: 'polygon(50% 0%, 100% 100%, 0% 100%)' }}
+      />
+      <div
+        className="absolute bottom-6 right-10 h-24 w-20 -rotate-6 border border-white/25 bg-white/10"
+        style={{ clipPath: 'polygon(50% 0%, 100% 100%, 0% 100%)' }}
+      />
     </div>
   );
 }
@@ -41,6 +53,8 @@ export default function HomePage() {
         <div className="absolute -left-28 top-28 h-72 w-72 rotate-12 bg-fuchsia-500/28 blur-3xl" />
         <div className="absolute right-[-90px] top-[26rem] h-80 w-80 -rotate-12 bg-sky-500/30 blur-3xl" />
         <div className="absolute left-1/3 top-[58rem] h-72 w-72 rotate-45 bg-violet-500/26 blur-3xl" />
+        <div className="absolute left-[70%] top-[8rem] h-44 w-44 rotate-12 bg-cyan-500/25 blur-3xl" />
+        <div className="absolute left-[8%] top-[74rem] h-56 w-56 -rotate-12 bg-indigo-500/20 blur-3xl" />
 
         <div
           className="absolute -left-24 top-[22rem] h-[22rem] w-[16rem] rotate-[22deg] bg-gradient-to-br from-violet-500/32 to-fuchsia-500/14"
@@ -50,6 +64,23 @@ export default function HomePage() {
           className="absolute right-8 top-[52rem] h-[24rem] w-[18rem] -rotate-[16deg] bg-gradient-to-br from-sky-500/30 to-cyan-500/14"
           style={{ clipPath: 'polygon(48% 0%, 100% 100%, 0% 100%)' }}
         />
+        <div
+          className="absolute right-[22%] top-[18rem] h-[18rem] w-[14rem] rotate-[30deg] border border-violet-300/20 bg-gradient-to-br from-fuchsia-500/20 to-transparent"
+          style={{ clipPath: 'polygon(50% 0%, 100% 100%, 0% 100%)' }}
+        />
+        <div
+          className="absolute left-[35%] top-[44rem] h-[14rem] w-[12rem] -rotate-[18deg] border border-sky-300/20 bg-gradient-to-br from-sky-500/18 to-transparent"
+          style={{ clipPath: 'polygon(50% 0%, 100% 100%, 0% 100%)' }}
+        />
+
+        <svg className="absolute inset-0 h-full w-full" viewBox="0 0 1200 1800" preserveAspectRatio="none">
+          <polygon points="70,360 180,180 255,390" fill="rgba(236,72,153,0.12)" />
+          <polygon points="960,250 1080,70 1160,290" fill="rgba(56,189,248,0.12)" />
+          <polygon points="180,980 300,760 385,1010" fill="rgba(99,102,241,0.11)" />
+          <polygon points="905,1240 1040,1030 1130,1290" fill="rgba(217,70,239,0.11)" />
+          <polyline points="210,220 420,350 620,280 840,390 1040,330" fill="none" stroke="rgba(148,163,184,0.18)" strokeWidth="2" />
+          <polyline points="90,1300 290,1160 500,1275 760,1130 1030,1210" fill="none" stroke="rgba(125,211,252,0.16)" strokeWidth="2" />
+        </svg>
       </div>
 
       <header className="mb-16 py-4 md:py-8">
