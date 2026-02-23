@@ -1,0 +1,42 @@
+[
+  {
+    "id": "garage-chorus-lite",
+    "name": "Garage Chorus Lite",
+    "version": "1.0.0",
+    "description": "A smooth analog-style chorus with fast controls for everyday mixes.",
+    "tier": "free",
+    "tags": ["Chorus", "Utility"],
+    "mac_url": "https://github.com/user/vst-garage/releases/download/v1.0.0/ChorusLite_Mac.zip",
+    "win_url": "https://github.com/user/vst-garage/releases/download/v1.0.0/ChorusLite_Win.zip"
+  },
+  {
+    "id": "granular-delay-pro",
+    "name": "Granular Garage Pro",
+    "version": "1.2.0",
+    "description": "Experimental granular delay with freeze, drift, and texture-shaping macros.",
+    "tier": "premium",
+    "tags": ["Delay", "Experimental"],
+    "mac_url": "https://github.com/user/vst-garage/releases/download/v1.2.0/GranularPro_Mac.zip",
+    "win_url": "https://github.com/user/vst-garage/releases/download/v1.2.0/GranularPro_Win.zip"
+  },
+    {
+    "id": "garage-chorus-lite",
+    "name": "Garage Chorus Lite",
+    "version": "1.0.0",
+    "description": "A smooth analog-style chorus with fast controls for everyday mixes.",
+    "tier": "free",
+    "tags": ["Chorus", "Utility"],
+    "mac_url": "https://github.com/user/vst-garage/releases/download/v1.0.0/ChorusLite_Mac.zip",
+    "win_url": "https://github.com/user/vst-garage/releases/download/v1.0.0/ChorusLite_Win.zip"
+  },
+  {
+    "id": "granular-delay-pro",
+    "name": "Granular Garage Pro",
+    "version": "1.2.0",
+    "description": "Experimental granular delay with freeze, drift, and texture-shaping macros.",
+    "tier": "premium",
+    "tags": ["Delay", "Experimental"],
+    "mac_url": "https://github.com/user/vst-garage/releases/download/v1.2.0/GranularPro_Mac.zip",
+    "win_url": "https://github.com/user/vst-garage/releases/download/v1.2.0/GranularPro_Win.zip"
+  }
+]

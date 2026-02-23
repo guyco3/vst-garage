@@ -1,0 +1,108 @@
+name: Build and Release Plugins
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: Build (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: macos-latest
+            cmake_generator: Xcode
+            artifact_suffix: Mac
+          - os: windows-latest
+            cmake_generator: Visual Studio 17 2022
+            artifact_suffix: Win
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup CMake
+        uses: lukka/get-cmake@latest
+
+      - name: Configure
+        run: cmake -S . -B build -G "${{ matrix.cmake_generator }}"
+
+      - name: Build
+        run: cmake --build build --config Release --parallel
+
+      - name: Collect plugin bundles
+        id: collect
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Path release -Force | Out-Null
+
+          $bundles = @()
+          $bundles += Get-ChildItem -Path build -Recurse -Directory -Filter *.vst3 -ErrorAction SilentlyContinue
+
+          if ('${{ runner.os }}' -eq 'macOS') {
+            $bundles += Get-ChildItem -Path build -Recurse -Directory -Filter *.component -ErrorAction SilentlyContinue
+          }
+
+          if (-not $bundles -or $bundles.Count -eq 0) {
+            Add-Content -Path $env:GITHUB_OUTPUT -Value "has_assets=false"
+            Write-Warning 'No plugin bundles were found under build/. Skipping signing, notarization, and release upload for this run.'
+            exit 0
+          }
+
+          Add-Content -Path $env:GITHUB_OUTPUT -Value "has_assets=true"
+
+          $releaseTag = '${{ github.ref_name }}'
+          foreach ($bundle in $bundles) {
+            $baseName = [System.IO.Path]::GetFileNameWithoutExtension($bundle.Name)
+            $ext = [System.IO.Path]::GetExtension($bundle.Name).TrimStart('.')
+            $zipName = "${baseName}_${ext}_${{ matrix.artifact_suffix }}_${releaseTag}.zip"
+            $zipPath = Join-Path "release" $zipName
+
+            if (Test-Path $zipPath) {
+              Remove-Item $zipPath -Force
+            }
+
+            Compress-Archive -Path $bundle.FullName -DestinationPath $zipPath -Force
+            Write-Host "Packed $($bundle.FullName) -> $zipPath"
+          }
+
+      - name: macOS code signing (optional)
+        if: steps.collect.outputs.has_assets == 'true' && runner.os == 'macOS' && secrets.APPLE_SIGNING_IDENTITY != ''
+        env:
+          APPLE_SIGNING_IDENTITY: ${{ secrets.APPLE_SIGNING_IDENTITY }}
+        run: |
+          set -euo pipefail
+          while IFS= read -r bundle; do
+            echo "Signing $bundle"
+            codesign --force --deep --options runtime --sign "$APPLE_SIGNING_IDENTITY" "$bundle"
+          done < <(find build -type d \( -name "*.vst3" -o -name "*.component" \))
+
+      - name: macOS notarization (optional)
+        if: steps.collect.outputs.has_assets == 'true' && runner.os == 'macOS' && secrets.APPLE_ID != '' && secrets.APPLE_TEAM_ID != '' && secrets.APPLE_APP_PASSWORD != ''
+        env:
+          APPLE_ID: ${{ secrets.APPLE_ID }}
+          APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+          APPLE_APP_PASSWORD: ${{ secrets.APPLE_APP_PASSWORD }}
+        run: |
+          set -euo pipefail
+          for zip in release/*.zip; do
+            echo "Submitting $zip for notarization"
+            xcrun notarytool submit "$zip" \
+              --apple-id "$APPLE_ID" \
+              --team-id "$APPLE_TEAM_ID" \
+              --password "$APPLE_APP_PASSWORD" \
+              --wait
+          done
+
+      - name: Publish GitHub Release assets
+        if: steps.collect.outputs.has_assets == 'true'
+        uses: softprops/action-gh-release@v2
+        with:
+          files: release/*.zip
+          generate_release_notes: true
