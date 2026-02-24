@@ -1,0 +1,25 @@
+{
+  "system": {
+    "camera_index": 1,
+    "target_fps": 60,
+    "smoothing_beta": 0.01
+  },
+  "keyboard": {
+    "note_start": 48,
+    "note_end": 72,
+    "press_z_threshold": 0.04,
+    "release_z_threshold": 0.02
+  },
+  "mpe_zone": {
+    "master_channel": 1,
+    "note_channels": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
+    "cc_y_axis": 74,
+    "cc_z_axis": 2
+  },
+  "adsr": {
+    "attack_ms": 10,
+    "decay_ms": 100,
+    "sustain_level": 0.8,
+    "release_ms": 200
+  }
+}
