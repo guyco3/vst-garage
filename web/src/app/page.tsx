@@ -8,6 +8,7 @@ type Plugin = {
   tags: string[];
   mac_url: string;
   win_url: string;
+  image_url?: string;
 };
 
 const plugins = catalog as Plugin[];
@@ -139,7 +140,17 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <PrismArt flip={index % 2 === 1} />
+              {plugin.image_url ? (
+                <div className={`relative h-64 overflow-hidden rounded-[1.8rem] ${index % 2 === 1 ? 'md:rotate-1' : 'md:-rotate-1'}`}>
+                  <img
+                    src={plugin.image_url}
+                    alt={`${plugin.name} screenshot`}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+              ) : (
+                <PrismArt flip={index % 2 === 1} />
+              )}
             </div>
           </article>
         ))}
