@@ -10,33 +10,13 @@
     "win_url": "https://github.com/user/vst-garage/releases/download/v1.0.0/ChorusLite_Win.zip"
   },
   {
-    "id": "granular-delay-pro",
-    "name": "Granular Garage Pro",
-    "version": "1.2.0",
-    "description": "Experimental granular delay with freeze, drift, and texture-shaping macros.",
-    "tier": "premium",
-    "tags": ["Delay", "Experimental"],
-    "mac_url": "https://github.com/user/vst-garage/releases/download/v1.2.0/GranularPro_Mac.zip",
-    "win_url": "https://github.com/user/vst-garage/releases/download/v1.2.0/GranularPro_Win.zip"
-  },
-    {
-    "id": "garage-chorus-lite",
-    "name": "Garage Chorus Lite",
-    "version": "1.0.0",
-    "description": "A smooth analog-style chorus with fast controls for everyday mixes.",
+    "id": "newproject",
+    "name": "NewProject",
+    "version": "1.0.1",
+    "description": "A polyphonic DSP synthesiser featuring dual detuned sawtooth oscillators, a Moog-style ladder filter with LFO modulation, ADSR envelope, and built-in reverb. Controls for Attack, Decay, Sustain, Release, LFO frequency, Room Size, Damping, Wet level, and Width.",
     "tier": "free",
-    "tags": ["Chorus", "Utility"],
-    "mac_url": "https://github.com/user/vst-garage/releases/download/v1.0.0/ChorusLite_Mac.zip",
-    "win_url": "https://github.com/user/vst-garage/releases/download/v1.0.0/ChorusLite_Win.zip"
-  },
-  {
-    "id": "granular-delay-pro",
-    "name": "Granular Garage Pro",
-    "version": "1.2.0",
-    "description": "Experimental granular delay with freeze, drift, and texture-shaping macros.",
-    "tier": "premium",
-    "tags": ["Delay", "Experimental"],
-    "mac_url": "https://github.com/user/vst-garage/releases/download/v1.2.0/GranularPro_Mac.zip",
-    "win_url": "https://github.com/user/vst-garage/releases/download/v1.2.0/GranularPro_Win.zip"
+    "tags": ["Synth", "DSP", "Polyphonic"],
+    "mac_url": "https://github.com/guyco3/vst-garage/releases/download/v1.0.1/NewProject_vst3_Mac_v1.0.1.zip",
+    "win_url": "https://github.com/guyco3/vst-garage/releases/download/v1.0.1/NewProject_vst3_Win_v1.0.1.zip"
   }
 ]
