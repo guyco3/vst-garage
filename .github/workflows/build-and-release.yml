@@ -75,10 +75,14 @@ jobs:
           }
 
       - name: macOS code signing (optional)
-        if: steps.collect.outputs.has_assets == 'true' && runner.os == 'macOS' && secrets.APPLE_SIGNING_IDENTITY != ''
+        if: steps.collect.outputs.has_assets == 'true' && runner.os == 'macOS'
         env:
           APPLE_SIGNING_IDENTITY: ${{ secrets.APPLE_SIGNING_IDENTITY }}
         run: |
+          if [ -z "$APPLE_SIGNING_IDENTITY" ]; then
+            echo "No APPLE_SIGNING_IDENTITY secret set — skipping code signing."
+            exit 0
+          fi
           set -euo pipefail
           while IFS= read -r bundle; do
             echo "Signing $bundle"
@@ -86,12 +90,16 @@ jobs:
           done < <(find build -type d \( -name "*.vst3" -o -name "*.component" \))
 
       - name: macOS notarization (optional)
-        if: steps.collect.outputs.has_assets == 'true' && runner.os == 'macOS' && secrets.APPLE_ID != '' && secrets.APPLE_TEAM_ID != '' && secrets.APPLE_APP_PASSWORD != ''
+        if: steps.collect.outputs.has_assets == 'true' && runner.os == 'macOS'
         env:
           APPLE_ID: ${{ secrets.APPLE_ID }}
           APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
           APPLE_APP_PASSWORD: ${{ secrets.APPLE_APP_PASSWORD }}
         run: |
+          if [ -z "$APPLE_ID" ] || [ -z "$APPLE_TEAM_ID" ] || [ -z "$APPLE_APP_PASSWORD" ]; then
+            echo "Notarization secrets not configured — skipping notarization."
+            exit 0
+          fi
           set -euo pipefail
           for zip in release/*.zip; do
             echo "Submitting $zip for notarization"
