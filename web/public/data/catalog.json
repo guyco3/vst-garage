@@ -10,7 +10,7 @@
     "win_url": "https://github.com/guyco3/vst-garage/releases/download/v1.0.1/NewProject_vst3_Win_v1.0.1.zip",
     "image_url": "/data/NewProject.jpg"
   },
-    {
+  {
     "id": "pfix",
     "name": "PViz",
     "version": "1.0.1",
@@ -19,6 +19,6 @@
     "tags": ["Pitch Detection", "Visualization"],
     "mac_url": "https://github.com/guyco3/vst-garage/releases/download/v1.0.1/PFix_vst3_Mac_v1.0.1.zip",
     "win_url": "https://github.com/guyco3/vst-garage/releases/download/v1.0.1/PFix_vst3_Win_v1.0.1.zip",
-    "image_url": "/data/Pfix.jpg"
+    "image_url": "/data/Pviz.jpg"
   }
 ]
