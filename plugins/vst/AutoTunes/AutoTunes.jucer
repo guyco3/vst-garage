@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="NOvMgo" name="AutoTunes" projectType="araaudioplug" useAppConfig="0"
+              addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1">
+  <MAINGROUP id="bG5GtO" name="AutoTunes">
+    <GROUP id="{6C0716C6-02C0-A9EA-F0D0-F95FC35B7EBA}" name="Source">
+      <FILE id="eU5AQt" name="PluginProcessor.cpp" compile="1" resource="0"
+            file="Source/PluginProcessor.cpp"/>
+      <FILE id="v5c54j" name="PluginProcessor.h" compile="0" resource="0"
+            file="Source/PluginProcessor.h"/>
+      <FILE id="zxmkr0" name="PluginEditor.cpp" compile="1" resource="0"
+            file="Source/PluginEditor.cpp"/>
+      <FILE id="YbQuJD" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
+      <FILE id="lfL3yL" name="PluginARADocumentController.cpp" compile="1"
+            resource="0" file="Source/PluginARADocumentController.cpp"/>
+      <FILE id="lUM826" name="PluginARADocumentController.h" compile="0"
+            resource="0" file="Source/PluginARADocumentController.h"/>
+      <FILE id="Sg3RZL" name="PluginARAPlaybackRenderer.cpp" compile="1"
+            resource="0" file="Source/PluginARAPlaybackRenderer.cpp"/>
+      <FILE id="auc9qb" name="PluginARAPlaybackRenderer.h" compile="0" resource="0"
+            file="Source/PluginARAPlaybackRenderer.h"/>
+    </GROUP>
+  </MAINGROUP>
+  <MODULES>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_plugin_client" showAllCode="1" useLocalCopy="0"
+            useGlobalPath="1"/>
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_processors_headless" showAllCode="1" useLocalCopy="0"
+            useGlobalPath="1"/>
+    <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_dsp" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_osc" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+  </MODULES>
+  <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>
+  <EXPORTFORMATS>
+    <XCODE_MAC targetFolder="Builds/MacOSX">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="AutoTunes"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="AutoTunes"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_audio_basics" path="../../../libs/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../../libs/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../../libs/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="../../../libs/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../../libs/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors_headless" path="../../../libs/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../../libs/JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="../../../libs/JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../../libs/JUCE/modules"/>
+        <MODULEPATH id="juce_dsp" path="../../../libs/JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../../../libs/JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../../libs/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../../libs/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../../libs/JUCE/modules"/>
+        <MODULEPATH id="juce_osc" path="../../../libs/JUCE/modules"/>
+      </MODULEPATHS>
+    </XCODE_MAC>
+  </EXPORTFORMATS>
+</JUCERPROJECT>
