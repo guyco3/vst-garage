@@ -1,6 +1,6 @@
 mediapipe==0.10.32
-opencv-python==4.13.0
+opencv-python==4.13.0.92
 PyQt5==5.15.10
 python-rtmidi==1.5.6
-numpy==2.4.2
+numpy==2.2.6
 # OneEuroFilter is implemented directly in src/utils/filters.py (no external package needed)
